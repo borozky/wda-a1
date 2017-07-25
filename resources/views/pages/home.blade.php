@@ -1,7 +1,5 @@
 @extends("shared/layout")
 
 @section("site-content")
-<div class="container">
-    home page
-</div>
+<h1>Home Page</h1>
 @endsection

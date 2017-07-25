@@ -13,3 +13,6 @@
 
 Route::get('/', "PagesController@index");
 Route::get('/faq', "PagesController@faq");
+
+Route::get("/tickets/create", "TicketsController@create");
+Route::post("/tickets", "TicketsController@store");

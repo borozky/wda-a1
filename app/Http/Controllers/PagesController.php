@@ -11,7 +11,7 @@ class PagesController extends Controller
     }
     
     public function faq(){
-        return "FAQ page";
+        return view("pages/faq");
     }
     
     

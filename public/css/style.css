@@ -1,3 +1,5 @@
+@import 'fixed-width-sidebar.css';
+
 .container {
     max-width: 960px;
     width: 100%;
@@ -8,10 +10,11 @@
 }
 
 
+
 /* site-header */
 .site-header {
     padding: 10px;
-    background-color: #063506;
+    background-color: #033e3d;
     color: #fff;
 }
 
@@ -48,4 +51,31 @@
     display: inline-block;
     color: #fff;
     padding: 7px 10px;
+}
+
+
+/* sidebar */
+.site-sidebar {
+    background-color: #eee;
+    min-height: 600px;
+    padding: 15px;
+
+}
+
+.site-sidebar ul {
+    padding: 0;
+    padding-left: 10px;
+    list-style: none;
+}
+
+.site-sidebar ul li {
+    line-height: 1.7;
+}
+
+
+
+
+/* site-content */
+.site-content {
+    padding: 15px;
 }
