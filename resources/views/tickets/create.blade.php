@@ -2,6 +2,7 @@
 
 @section("site-content")
 
+<div id="CreateTicketArea">
 <!-- // user email, first and last names, email, operating system being used, software issue and a comment textearea to describe the issue -->
 <h1>Submit a ticket</h1>
 <form>
@@ -48,16 +49,8 @@
         </tr>
         
     </table>
-    <p>
-        
-        
-    </p>
-    
-    
-    
-    
-    
     <input type="submit" value="Submit ticket">
 </form>
+</div>
 
 @endsection

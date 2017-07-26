@@ -5,7 +5,7 @@
         <title>@yield("title", "ITS Ticketing System")</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
-        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}" />
+        <link rel="stylesheet" href="/css/style.css" />
         @yield("head-scripts")
     </head>
     <body>
