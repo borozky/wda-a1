@@ -5,7 +5,7 @@
 <div id="CreateTicketArea">
 <!-- // user email, first and last names, email, operating system being used, software issue and a comment textearea to describe the issue -->
 <h1>Submit a ticket</h1>
-<form>
+<form action="{{ action('TicketsController@store') }}" method="POST" enctype="multipart/form-data">
     <table>
         <tr>
             <td><label for="TicketEmail">Your email</label></td>
@@ -22,7 +22,7 @@
         <tr>
             <td><label for="TicketOperatingSystem">Operating System</label></td>
             <td>
-                <select name="operating-system" id="TicketOperatingSystem">
+                <select name="operating_system" id="TicketOperatingSystem">
                     <option value="-" selected="selected">-- Select OS --</option>
                     <option value="windows">Windows</option>
                     <option value="mac">Mac</option>
@@ -33,7 +33,7 @@
         <tr>
             <td><label for="TicketSoftwareIssue">Software Issues</label></td>
             <td>
-                <select name="software-issue" id="TicketSoftwareIssue">
+                <select name="software_issue" id="TicketSoftwareIssue">
                     <option value="-" selected="selected">-- Select Common Issues --</option>
                     <option value="12323">PHPStorm</option>
                     <option value="12324">Cloud 9 Setup</option>
