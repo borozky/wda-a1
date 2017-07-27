@@ -1,0 +1,17 @@
+/* sidebar */
+.site-sidebar {
+    background-color: #eee;
+    min-height: 600px;
+    padding: 15px;
+
+}
+
+.site-sidebar ul {
+    padding: 0;
+    padding-left: 10px;
+    list-style: none;
+}
+
+.site-sidebar ul li {
+    line-height: 1.7;
+}

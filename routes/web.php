@@ -15,4 +15,7 @@ Route::get('/', "PagesController@index");
 Route::get('/faq', "PagesController@faq");
 
 Route::get("/tickets/create", "TicketsController@create");
+Route::get("/tickets", "TicketsController@index");
 Route::post("/tickets", "TicketsController@store");
+Route::get("/tickets/search", "TicketsController@search");
+Route::get("/tickets/{id}", "TicketsController@details");

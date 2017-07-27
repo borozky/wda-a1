@@ -1,0 +1,71 @@
+#CreateTicketArea input,
+#CreateTicketArea select,
+#CreateTicketArea textarea {
+    margin-bottom: 7px;
+}
+
+
+#TicketsIndexArea {}
+#TicketsIndexArea table {
+    font-size: 12px;
+    width: 100%;
+}
+
+#TicketsIndexArea table tr {}
+
+#TicketsIndexArea table tr th,
+#TicketsIndexArea table tr td {
+    padding: 5px 10px;
+    text-align: left;
+}
+
+#TicketsIndexArea table tr th {
+    background-color: #e0f1f0;
+}
+
+#TicketsIndexArea table tr td.ticket-sender * {
+    display: inline-block;
+    max-width: 120px;
+    word-wrap: break-word;
+}
+
+#TicketsIndexArea table tr td.ticket-details {
+    min-width: 200px;
+}
+
+.status-pending, 
+.status-in_progress, 
+.status-unresolved, 
+.status-resolved {
+    display: inline-block;
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 2px;
+}
+
+.status-pending {
+    background-color: #adadad;
+}
+.status-in_progress {
+    background-color: #8a6e3b;
+}
+.status-unresolved {
+    background-color: #292929;
+}
+.status-resolved {
+    background-color: green;
+}
+
+
+#TicketDetailsArea table {
+    text-align: left;
+}
+
+#TicketDetailsArea table tr td {
+    padding: 4px 14px 4px 0;
+}
+
+#TicketDetailsArea .ticket-information {
+    font-size: 12px;
+}
+

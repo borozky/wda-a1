@@ -1,4 +1,7 @@
 @import 'fixed-width-sidebar.css';
+@import 'Tickets.css';
+@import "site-header.css";
+@import "site-sidebar.css";
 
 .container {
     max-width: 960px;
@@ -8,71 +11,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-
-
-/* site-header */
-.site-header {
-    padding: 10px;
-    background-color: #033e3d;
-    color: #fff;
-}
-
-.site-header .site-logo {
-    color: #fff;
-}
-
-.site-header .site-logo a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 24px;
-}
-
-.site-header .site-logo a:hover {
-    text-decoration: underline;
-}
-
-.site-header .site-navigation {
-    margin-top: 30px;
-}
-
-.site-header .site-navigation ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 13px
-}
-
-.site-header .site-navigation ul li {
-    display: inline-block;
-}
-
-.site-header .site-navigation ul li a {
-    display: inline-block;
-    color: #fff;
-    padding: 7px 10px;
-}
-
-
-/* sidebar */
-.site-sidebar {
-    background-color: #eee;
-    min-height: 600px;
-    padding: 15px;
-
-}
-
-.site-sidebar ul {
-    padding: 0;
-    padding-left: 10px;
-    list-style: none;
-}
-
-.site-sidebar ul li {
-    line-height: 1.7;
-}
-
-
-
 
 /* site-content */
 .site-content {

@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ticket;
+use App\Ticket as Ticket;
 
 class TicketsController extends Controller
 {
     // GET: /tickets
-    public function index(){
-        return "all tickets";
+    public function index(Request $request){
+        $tickets = Ticket::all();
+        
+        return view("tickets.index", ["tickets" => $tickets]);
     }
+    
+    // GET: /tickets/search
+    public function search(Request $request){
+        $tickets = [];
+        if($request->has("search")){
+            $tickets[] = Ticket::all()->first();
+        }
+        
+        return view("tickets.search", ["tickets" => $tickets]);
+    }
+    
 
     // GET: /tickets/5
-    public function details(){
-        return view("tickets.details");
+    public function details($id){
+        $ticket = Ticket::find($id);
+        return view("tickets.details", ["ticket" => $ticket]);
     }
     
     // GET: /tickets/create
@@ -25,26 +39,28 @@ class TicketsController extends Controller
     // POST: /tickets
     public function store(Request $request){
         $this->validate($request, [
-            "email" => "required|email",
+            "email"     => "required|email",
             "firstname" => "required|min:2",
-            "lastname" => "required",
-            "comment" => "required"
+            "lastname"  => "required",
+            "details"   => "required"
         ]);
-
-        $ticket = new Ticket();
+        
+        $ticket = new Ticket;
         $ticket->email = $request->email;
         $ticket->firstname = $request->firstname;
         $ticket->lastname = $request->lastname;
         $ticket->operating_system = $request->operating_system;
         $ticket->software_issue = $request->software_issue;
-        $ticket->description = $request->comment;
-
+        $ticket->details = $request->details;
+        
         if( $ticket->save() ){
-            return redirect("/")->with("success", "Ticket has been added!");
+            return view("tickets.created", ["ticket" => $ticket]);
         }
-
-        // return back with errors by default
-        return back()->with("danger", "Error has been occured when creating a ticket");
+        
+        return back();
+        
+        
+        
     }
     
 }
