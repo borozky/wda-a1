@@ -1,12 +1,16 @@
 /* site-header */
 .site-header {
-    padding: 10px;
     background-color: #033e3d;
     color: #fff;
+    height: 140px;
 }
 
 .site-header .site-logo {
     color: #fff;
+    width: 50%;
+    min-width: 240px;
+    float: left;
+    margin-top: 27px;
 }
 
 .site-header .site-logo a {
@@ -20,14 +24,15 @@
 }
 
 .site-header .site-navigation {
-    margin-top: 30px;
+    text-align: right;
+    font-size: 12px;
+    background-color: #032d2d;
 }
 
 .site-header .site-navigation ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: 13px
 }
 
 .site-header .site-navigation ul li {
@@ -37,5 +42,10 @@
 .site-header .site-navigation ul li a {
     display: inline-block;
     color: #fff;
-    padding: 7px 10px;
+    text-decoration: underline;
+    padding: 5px 4px;
+}
+
+.site-header .site-navigation ul li a:hover {
+    text-decoration: none;
 }

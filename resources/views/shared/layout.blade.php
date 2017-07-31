@@ -15,7 +15,7 @@
             </div>
             <div class="site-main">
                 <div class="container">
-                    <div class="clearfix margin sidebar-left">
+                    <div class="clearfix margin sidebar-left entry">
                     	<div class="fixed-sidebar">
                     	    <div class="site-sidebar">
                     	        @include("shared.site-sidebar")

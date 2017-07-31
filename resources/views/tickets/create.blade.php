@@ -7,7 +7,7 @@
 <h1>Submit a ticket</h1>
 
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="validation-errors">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

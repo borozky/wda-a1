@@ -2,6 +2,7 @@
 @import 'Tickets.css';
 @import "site-header.css";
 @import "site-sidebar.css";
+@import "validation-errors.css";
 
 .container {
     max-width: 960px;
@@ -15,4 +16,14 @@
 /* site-content */
 .site-content {
     padding: 15px;
+}
+
+.entry {
+    margin-top: -32px;
+    z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    border-radius: 2px;
+    margin-bottom: 30px;
 }
