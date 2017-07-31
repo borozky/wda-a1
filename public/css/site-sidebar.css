@@ -1,6 +1,6 @@
 /* sidebar */
 .site-sidebar {
-    background-color: #042525;
+    background-color: #063333;
     min-height: 600px;
     padding: 15px;
     color: #fff;
@@ -17,7 +17,7 @@
 }
 
 .site-sidebar ul li a {
-    color: #cfd2ff;
+    color: #c6d9f3;
     text-decoration: underline;
     font-size: 12px;
 }

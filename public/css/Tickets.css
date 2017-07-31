@@ -44,16 +44,17 @@
 }
 
 .status-pending {
-    background-color: #adadad;
+    background-color: #bd4a4a;
 }
 .status-in_progress {
-    background-color: #8a6e3b;
+    background-color: #e2cca6;
 }
 .status-unresolved {
-    background-color: #292929;
+    background-color: #cccccc;
+    color: #848484;
 }
 .status-resolved {
-    background-color: green;
+    background-color: #b8d8b0;
 }
 
 
