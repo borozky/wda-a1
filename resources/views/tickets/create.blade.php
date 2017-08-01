@@ -6,15 +6,7 @@
 <!-- // user email, first and last names, email, operating system being used, software issue and a comment textearea to describe the issue -->
 <h1>Submit a ticket</h1>
 
-@if ($errors->any())
-    <div class="validation-errors">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@include("errors.validation-errors")
 
 <form action="{{ url('/tickets') }}" method="POST" enctype="multipart/form-data" style="display:inline-block">
     

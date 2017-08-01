@@ -9,9 +9,13 @@ class TicketsController extends Controller
 {
     // GET: /tickets
     public function index(Request $request){
-        $tickets = Ticket::all();
+        if($request->session()->has("staff_email")){
+            $tickets = Ticket::all();
+            return view("tickets.index", ["tickets" => $tickets]);
+        }
+
+        return redirect("staff");
         
-        return view("tickets.index", ["tickets" => $tickets]);
     }
     
     // GET: /tickets/search

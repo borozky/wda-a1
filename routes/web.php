@@ -19,3 +19,9 @@ Route::get("/tickets", "TicketsController@index");
 Route::post("/tickets", "TicketsController@store");
 Route::get("/tickets/search", "TicketsController@search");
 Route::get("/tickets/{id}", "TicketsController@details");
+
+Route::get("/staff", "UsersController@staff");
+Route::post("/staff", "UsersController@signin");
+
+Route::get("/logout", "UsersController@logout");
+

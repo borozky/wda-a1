@@ -14,4 +14,7 @@
 <h4>ITS Staff</h4>
 <ul>
     <li><a href="{{ url('/tickets') }}">View all tickets</a></li>
+    @if(session()->exists("staff_email"))
+        <li><a href="{{ url('/logout') }}">Exit</a></li>
+    @endif
 </ul>

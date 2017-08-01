@@ -1,8 +1,10 @@
 @import 'fixed-width-sidebar.css';
-@import 'Tickets.css';
 @import "site-header.css";
 @import "site-sidebar.css";
 @import "validation-errors.css";
+
+@import 'Tickets.css';
+@import 'Users.css';
 
 .container {
     max-width: 960px;

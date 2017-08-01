@@ -1,10 +1,17 @@
+/**
+================================
+CREATE TICKETS
+================================ */
 #CreateTicketArea input,
 #CreateTicketArea select,
 #CreateTicketArea textarea {
     margin-bottom: 7px;
 }
 
-
+/**
+================================
+ALL TICKETS
+================================ */
 #TicketsIndexArea {}
 #TicketsIndexArea table {
     font-size: 12px;
@@ -43,6 +50,10 @@
     border-radius: 2px;
 }
 
+/**
+================================
+TICKET STATUSES
+================================ */
 .status-pending {
     background-color: #bd4a4a;
 }
@@ -58,6 +69,14 @@
 }
 
 
+/**
+================================
+TICKET DETAILS AREA
+================================ */
+#TicketDetailsArea {
+
+}
+
 #TicketDetailsArea table {
     text-align: left;
 }
@@ -68,5 +87,23 @@
 
 #TicketDetailsArea .ticket-information {
     font-size: 12px;
+}
+
+
+#TicketDetailsArea .ticket-details {}
+
+#TicketDetailsArea .ticket-comments {
+    font-size: 12px;
+}
+
+#TicketDetailsArea .ticket-comments .ticket-comment-emptymessage {
+    color: #8c8c8c;
+}
+#TicketDetailsArea .ticket-comments b {
+    font-size: 14px;
+}
+
+#TicketDetailsArea textarea {
+
 }
 
