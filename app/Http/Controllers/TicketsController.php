@@ -62,9 +62,8 @@ class TicketsController extends Controller
         }
         
         return back();
-        
-        
-        
     }
+
+
     
 }
