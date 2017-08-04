@@ -1,12 +1,16 @@
-<div class="site-navigation">
-    <div class="container">
-        <ul>
-            <li><a href="{{ url('/') }}">Home Page</a></li>
-            <li><a href="{{ url('/faq') }}">FAQ</a></li>
-            @if(session()->exists("staff_email"))
-                <li>Logged in as {{ session("staff_email") }}</li>
-                <li><a href="{{ url('/logout') }}">Exit</a></li>
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="{{ url('/') }}">Home</a></li>
+    <li><a href="{{ url('/faq') }}">FAQ</a></li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ url('/tickets') }}">View all tickets</a></li>
+            @if( ! empty(session("staff_email")))
+                <li><a href="{{ url('/logout') }}">Logout</a></li>
             @endif
         </ul>
-    </div>
-</div>
+    </li>
+    <li class="hidden-xs">
+        <a href="{{ url('/tickets/create') }}" id="CreateTicket" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Create a ticket</a>
+    </li>
+</ul>
