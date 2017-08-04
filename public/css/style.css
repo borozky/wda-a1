@@ -1,27 +1,20 @@
+@import "common.css";
 @import 'fixed-width-sidebar.css';
 @import "site-header.css";
 @import "site-sidebar.css";
 @import "validation-errors.css";
+@import "bootstrap-overrides.css";
+
+@import "entry-header.css";
 
 @import 'Tickets.css';
 @import 'Users.css';
 
-.container {
-    max-width: 960px;
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* site-content */
 .site-content {
-    padding: 15px;
+    margin-top: 15px;
 }
 
 .entry {
-    margin-top: -32px;
     z-index: 9999;
     background-color: #fff;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);

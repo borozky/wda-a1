@@ -2,11 +2,47 @@
 ================================
 CREATE TICKETS
 ================================ */
+#CreateTicketArea form {
+    max-width: 400px;
+    width: 100%;
+}
+
+#CreateTicketArea form textarea {
+    width: 100%;
+    display: inline-block;
+}
 #CreateTicketArea input,
 #CreateTicketArea select,
 #CreateTicketArea textarea {
     margin-bottom: 7px;
+    border-radius: 0;
+    -webkit-border-radius: 0;
 }
+
+#CreateTicketArea input[type=text], #CreateTicketArea input[type=email] {height: 29px;}
+
+#CreateTicketArea table tr td:first-child {
+    vertical-align: top;
+}
+
+#CreateTicketArea input.error,
+#CreateTicketArea select.error,
+#CreateTicketArea textarea.error {
+    margin-bottom: 0;
+}
+
+#CreateTicketArea input + .error, 
+#CreateTicketArea textarea + .error {
+    color: red;
+    font-weight: normal;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0;
+    margin-left: 6px;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
 
 /**
 ================================
@@ -62,11 +98,26 @@ TICKET STATUSES
 }
 .status-unresolved {
     background-color: #cccccc;
-    color: #848484;
+    color: #ffffff;
 }
 .status-resolved {
     background-color: #b8d8b0;
 }
+
+.btn.status-pending {
+    background-color: #bd4a4a;
+}
+.btn.status-in_progress {
+    background-color: #ce993f;
+}
+.btn.status-unresolved {
+    background-color: #888888;
+}
+.btn.status-resolved {
+    background-color: #75ca60;
+}
+
+
 
 
 /**

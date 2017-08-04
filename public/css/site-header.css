@@ -1,8 +1,7 @@
 /* site-header */
 .site-header {
-    background-color: #033e3d;
+    background-color: #005453;
     color: #fff;
-    height: 140px;
 }
 
 .site-header .site-logo {
@@ -48,4 +47,36 @@
 
 .site-header .site-navigation ul li a:hover {
     text-decoration: none;
+}
+
+#Navtop {
+    background-color: #004241;
+    padding: 4px 0;
+    position: fixed;
+    width: 100%;
+    margin-top: -30px;
+    z-index: 999;
+}
+
+.site-header.fixed-top {
+    margin-top: 30px;
+}
+
+.site-header.fixed-top #Navtop {
+    position: fixed;
+    width: 100%;
+    margin-top: -30px;
+    z-index: 999;
+}
+
+#CreateTicket:hover {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+@media screen and (min-width: 768px){
+    .site-header.fixed-top {
+        margin-top: 0;
+    }
+
 }
