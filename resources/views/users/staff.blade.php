@@ -5,9 +5,6 @@
 @section("site-content")
     <div id="StaffEntryArea">
 
-        <h3>Enter staff email</h3>
-        <p>Please enter a staff email to view all tickets</p>
-
         @include("errors.validation-errors")
         <br/>
 
@@ -17,12 +14,12 @@
                 <tr>
                     <td><label for="StaffEmail">Staff Email</label></td>
                     <td>
-                        <input type="email" name="staff_email" id="StaffEmail">
+                        <input type="email" name="staff_email" id="StaffEmail" class="form-control input-xs">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="View All Tickets">
+                        <input type="submit" value="View All Tickets" class="btn btn-sm btn-primary">
                     </td>
                 </tr>
             </table>
