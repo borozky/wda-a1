@@ -7,17 +7,14 @@ use App\Ticket as Ticket;
 
 class TicketsController extends Controller
 {
+
     // GET: /tickets
     public function index(Request $request){
-        if($request->session()->has("staff_email")){
-            $tickets = Ticket::all();
-            return view("tickets.index", ["tickets" => $tickets]);
-        }
-
-        return redirect("staff");
-        
+        $tickets = Ticket::orderBy("created_at", "DESC")->get();
+        return view("tickets.index", ["tickets" => $tickets]);
     }
     
+
     // GET: /tickets/search
     public function search(Request $request){
         $tickets = [];
@@ -35,10 +32,12 @@ class TicketsController extends Controller
         return view("tickets.details", ["ticket" => $ticket]);
     }
     
+
     // GET: /tickets/create
     public function create(){
         return view("tickets.create");
     }
+
 
     // POST: /tickets
     public function store(Request $request){

@@ -40,7 +40,7 @@
                     @endforeach
                 </ul>
             @else
-            <span class="ticket-comment-emptymessage">There are no comments for this ticket</span>
+                <span class="ticket-comment-emptymessage">There are no comments for this ticket</span>
             @endif
         </div>
         <hr/>
@@ -48,36 +48,31 @@
         <form method="POST" action="{{ url('/tickets/' . $ticket->id . '/comments') }}">
             {{ csrf_field() }}
             <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
-            <label for="TicketComment">Add comment</label><br/>
-            <textarea name="details" id="TicketComment" cols="30" rows="5"></textarea><br/>
+
+            <table>
+                <tr>
+                    <td><label for="TicketCommenter">Email</label></td>
+                    <td><input type="email" name="staff_email" value="{{ old('staff_email', '') }}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="TicketComment">Add comment</label><br/>
+                        <textarea name="details" id="TicketComment" cols="30" rows="5">{{ old('details', '') }}</textarea>
+                    </td>
+                </tr>
+            </table>
+            
 
             <div class="ticket-actions">
                 <label>Mark ticket as</label><br />
-
                 <input type="submit" name="status" value="pending" class="btn btn-xs status-pending"/>
                 <input type="submit" name="status" value="in progress" class="btn btn-xs status-in_progress"/>
                 <input type="submit" name="status" value="unresolved" class="btn btn-xs status-unresolved"/>
                 <input type="submit" name="status" value="resolved" class="btn btn-xs status-resolved"/><br/><br/>
-                <!--
-                
-                <input type="radio" name="status" value="pending" checked="checked" id="MarkAsPending"/>
-                <label for="MarkAsPending">Pending</label>
-                &nbsp;
-                <input type="radio" name="status" value="in-progress" id="MarkAsInProgress"/>
-                <label for="MarkAsInProgress">In Progress</label>
-                &nbsp;
-                <input type="radio" name="status" value="unresolved" id="MarkAsUnresolved"/>
-                <label for="MarkAsUnresolved">Unresolved</label>
-                &nbsp;
-                <input type="radio" name="status" value="resolved" id="MarkAsResolved"/>
-                <label for="MarkAsResolved">Resolved</label>
-                <br />
-                <br />
-                -->
                 <small>The email <code>{{ session("staff_email") }}</code> will be used</small><br/>
                 <input type="submit" value="Add comment">
-
             </div>
+            
         </form>
     @endif
 </div>

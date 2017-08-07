@@ -11,28 +11,26 @@ CREATE TICKETS
     width: 100%;
     display: inline-block;
 }
-#CreateTicketArea input,
-#CreateTicketArea select,
-#CreateTicketArea textarea {
+
+#CreateTicketArea input, #CreateTicketArea select, #CreateTicketArea textarea {
     margin-bottom: 7px;
     border-radius: 0;
     -webkit-border-radius: 0;
 }
 
-#CreateTicketArea input[type=text], #CreateTicketArea input[type=email] {height: 29px;}
+#CreateTicketArea input[type=text], #CreateTicketArea input[type=email] {
+    height: 29px;
+}
 
 #CreateTicketArea table tr td:first-child {
     vertical-align: top;
 }
 
-#CreateTicketArea input.error,
-#CreateTicketArea select.error,
-#CreateTicketArea textarea.error {
+#CreateTicketArea input.error, #CreateTicketArea select.error, #CreateTicketArea textarea.error {
     margin-bottom: 0;
 }
 
-#CreateTicketArea input + .error, 
-#CreateTicketArea textarea + .error {
+#CreateTicketArea input + .error, #CreateTicketArea textarea + .error {
     color: red;
     font-weight: normal;
     font-size: 12px;
@@ -43,21 +41,22 @@ CREATE TICKETS
     line-height: 1;
 }
 
-
 /**
 ================================
 ALL TICKETS
 ================================ */
-#TicketsIndexArea {}
+#TicketsIndexArea {
+}
+
 #TicketsIndexArea table {
     font-size: 12px;
     width: 100%;
 }
 
-#TicketsIndexArea table tr {}
+#TicketsIndexArea table tr {
+}
 
-#TicketsIndexArea table tr th,
-#TicketsIndexArea table tr td {
+#TicketsIndexArea table tr th, #TicketsIndexArea table tr td {
     padding: 5px 10px;
     text-align: left;
 }
@@ -72,14 +71,24 @@ ALL TICKETS
     word-wrap: break-word;
 }
 
-#TicketsIndexArea table tr td.ticket-details {
-    min-width: 200px;
+#TicketsIndexArea table tr td a {
+    text-decoration: underline;
 }
 
-.status-pending, 
-.status-in_progress, 
-.status-unresolved, 
-.status-resolved {
+#TicketsIndexArea table tr td a:hover {
+    text-decoration: none;
+}
+
+#TicketsIndexArea table tr td .ticket-details {
+    /* min-width: 200px; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 170px;
+}
+
+.status-pending, .status-in_progress, .status-unresolved, .status-resolved {
     display: inline-block;
     color: #fff;
     padding: 1px 6px;
@@ -93,13 +102,16 @@ TICKET STATUSES
 .status-pending {
     background-color: #bd4a4a;
 }
+
 .status-in_progress {
     background-color: #e2cca6;
 }
+
 .status-unresolved {
     background-color: #cccccc;
     color: #ffffff;
 }
+
 .status-resolved {
     background-color: #b8d8b0;
 }
@@ -107,25 +119,24 @@ TICKET STATUSES
 .btn.status-pending {
     background-color: #bd4a4a;
 }
+
 .btn.status-in_progress {
     background-color: #ce993f;
 }
+
 .btn.status-unresolved {
     background-color: #888888;
 }
+
 .btn.status-resolved {
     background-color: #75ca60;
 }
-
-
-
 
 /**
 ================================
 TICKET DETAILS AREA
 ================================ */
 #TicketDetailsArea {
-
 }
 
 #TicketDetailsArea table {
@@ -140,8 +151,8 @@ TICKET DETAILS AREA
     font-size: 12px;
 }
 
-
-#TicketDetailsArea .ticket-details {}
+#TicketDetailsArea .ticket-details {
+}
 
 #TicketDetailsArea .ticket-comments {
     font-size: 12px;
@@ -150,11 +161,10 @@ TICKET DETAILS AREA
 #TicketDetailsArea .ticket-comments .ticket-comment-emptymessage {
     color: #8c8c8c;
 }
+
 #TicketDetailsArea .ticket-comments b {
     font-size: 14px;
 }
 
 #TicketDetailsArea textarea {
-
 }
-
