@@ -10,7 +10,7 @@ class TicketsController extends Controller
     // GET: /tickets
     public function index(Request $request){
         if($request->session()->has("staff_email")){
-            $tickets = Ticket::all();
+            $tickets = Ticket::orderBy("created_at", "DESC")->get();
             return view("tickets.index", ["tickets" => $tickets]);
         }
 

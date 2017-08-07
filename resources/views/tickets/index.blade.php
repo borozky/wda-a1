@@ -33,7 +33,7 @@
                     </td>
                     <td class="ticket-details">{{ $ticket->details }}</td>
                     <td class="ticket-status">
-                        <span class="status-{{ str_replace(' ', '_', $ticket->status) }}">{{ $ticket->status }}</span><br/>
+                        <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">{{ $ticket->status }}</span><br/>
                     </td>
                 </tr>
             @endforeach

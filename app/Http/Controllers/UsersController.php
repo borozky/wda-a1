@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -15,6 +16,13 @@ class UsersController extends Controller
         $this->validate($request, [
             "staff_email" => "required|email"
         ]);
+        
+        $user = User::where("email", $request->staff_email)->first();
+        if( $user == null){
+            $user = new User;
+            $user->email = $request->staff_email;
+            $user->save();
+        }
 
         session(["staff_email" => $request->staff_email]);
         return redirect("/tickets");
