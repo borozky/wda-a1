@@ -7,6 +7,8 @@
 
     <br/>
     
+    @include("errors.validation-errors")
+    
     @if(isset($ticket) && !empty($ticket))
 
         <h4>Details</h4>
@@ -26,7 +28,11 @@
             </tr>
             <tr>
                 <td>Status</td>
-                <td><span class="status-{{ str_replace(' ', '_', $ticket->status) }}">{{ ucwords($ticket->status) }}</span></td>
+                <td>
+                    <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">
+                        {{ ucwords($ticket->status) }}
+                    </span>
+                </td>
             </tr>
         </table>
         <hr/>
@@ -36,7 +42,12 @@
             @if( count($ticket->comments) > 0)
                 <ul class="comments">
                     @foreach($ticket->comments as $comment)
-                        <li>{{ print_r($comment->details) }}</li>
+                        <li>
+                            <b>{{ $comment->user->email }}</b><br/>
+                            <div>
+                                {{ $comment->details }}
+                            </div>
+                        </li>
                     @endforeach
                 </ul>
             @else

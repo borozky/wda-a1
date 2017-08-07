@@ -5,7 +5,11 @@
 @section("site-content")
 <div id="TicketDetailsArea">
     
-    <h3>The ticket has been submitted</h3>
+    <div class="alert alert-success">
+        <div class="container">
+            <h3>The ticket has been submitted</h3>
+        </div>
+    </div>
     
     <table class="ticket-information">
         <tr>
