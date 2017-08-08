@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ticket as Ticket;
+use App\Comment;
 
 class TicketsController extends Controller
 {
@@ -29,6 +30,7 @@ class TicketsController extends Controller
     // GET: /tickets/5
     public function details($id){
         $ticket = Ticket::find($id);
+
         return view("tickets.details", ["ticket" => $ticket]);
     }
     

@@ -151,8 +151,7 @@ TICKET DETAILS AREA
     font-size: 12px;
 }
 
-#TicketDetailsArea .ticket-details {
-}
+#TicketDetailsArea .ticket-details {}
 
 #TicketDetailsArea .ticket-comments {
     font-size: 12px;
@@ -168,3 +167,26 @@ TICKET DETAILS AREA
 
 #TicketDetailsArea textarea {
 }
+
+#TicketDetailsArea .comments {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#TicketDetailsArea .comments .comment {
+    padding: 10px 10px;
+    margin: 5px 0;
+    background-color: #fbfbfb;
+    border: 1px solid #efefef
+}
+#TicketDetailsArea .comments .comment .commenter {
+    font-weight: bold;
+}
+#TicketDetailsArea .comments .comment .comment-details {
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+

@@ -41,12 +41,10 @@
             <b>Comments</b><br/>
             @if( count($ticket->comments) > 0)
                 <ul class="comments">
-                    @foreach($ticket->comments as $comment)
-                        <li>
-                            <b>{{ $comment->user->email }}</b><br/>
-                            <div>
-                                {{ $comment->details }}
-                            </div>
+                    @foreach($ticket->comments()->orderBy("created_at", "DESC")->get() as $comment)
+                        <li class="comment">
+                            <span class="commenter">By: {{ $comment->user->email }}</span> - <small><i>{{ $comment->created_at->diffForHumans() }}</i></small>
+                            <span class="comment-details">{{ $comment->details }}</span>
                         </li>
                     @endforeach
                 </ul>
@@ -60,14 +58,16 @@
             {{ csrf_field() }}
             <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
 
+            <h4>Add Comment</h4>
+
             <table>
                 <tr>
                     <td><label for="TicketCommenter">Email</label></td>
-                    <td><input type="email" name="staff_email" value="{{ old('staff_email', '') }}"></td>
+                    <td><input type="email" name="email" value="{{ old('email', '') }}"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <label for="TicketComment">Add comment</label><br/>
+                        <label for="TicketComment">Comment</label><br/>
                         <textarea name="details" id="TicketComment" cols="30" rows="5">{{ old('details', '') }}</textarea>
                     </td>
                 </tr>
@@ -80,7 +80,6 @@
                 <input type="submit" name="status" value="in progress" class="btn btn-xs status-in_progress"/>
                 <input type="submit" name="status" value="unresolved" class="btn btn-xs status-unresolved"/>
                 <input type="submit" name="status" value="resolved" class="btn btn-xs status-resolved"/><br/><br/>
-                <small>The email <code>{{ session("staff_email") }}</code> will be used</small><br/>
                 <input type="submit" value="Add comment">
             </div>
             

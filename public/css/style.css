@@ -2,6 +2,7 @@
 @import 'fixed-width-sidebar.css';
 @import "site-header.css";
 @import "site-sidebar.css";
+@import "site-footer.css";
 @import "validation-errors.css";
 @import "bootstrap-overrides.css";
 
@@ -21,4 +22,14 @@
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
     border-radius: 2px;
     margin-bottom: 30px;
+}
+
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1;
 }
