@@ -11,30 +11,17 @@
     
     @if(isset($ticket) && !empty($ticket))
 
-        <h4>Details</h4>
+        <h4>Ticket Details</h4>
+
+        <div class="ticket-information">
+            From: {{ $ticket->firstname . " " . $ticket->lastname }}  &lt;<a href="mailto:{{ $ticket->email }}">{{ $ticket->email }}</a>&gt;<br/>
+            Status: <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">{{ ucwords($ticket->status) }}</span>
+        </div>
+        <br/>
         <div class="ticket-details">
             {{ $ticket->details }}
         </div>
-        <hr/>
-
-        <table class="ticket-information">
-            <tr>
-                <td>From</td>
-                <td>{{ $ticket->firstname . " " . $ticket->lastname }}</td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>{{ $ticket->email }}</td>
-            </tr>
-            <tr>
-                <td>Status</td>
-                <td>
-                    <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">
-                        {{ ucwords($ticket->status) }}
-                    </span>
-                </td>
-            </tr>
-        </table>
+        <small class="created_at">Created: {{ $ticket->created_at->diffForHumans() }}</small>
         <hr/>
 
         <form method="POST" action="{{ url('/tickets/' . $ticket->id . '/comments') }}">
