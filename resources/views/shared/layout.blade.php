@@ -20,6 +20,8 @@
 
             <div class="site-main">
 
+                @include("shared.alerts")
+
                 @yield("entry-header")
 
                 <div class="container">
