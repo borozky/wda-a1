@@ -36,23 +36,6 @@
             </tr>
         </table>
         <hr/>
-        
-        <div class="ticket-comments">
-            <b>Comments</b><br/>
-            @if( count($ticket->comments) > 0)
-                <ul class="comments">
-                    @foreach($ticket->comments()->orderBy("created_at", "DESC")->get() as $comment)
-                        <li class="comment">
-                            <span class="commenter">By: {{ $comment->user->email }}</span> - <small><i>{{ $comment->created_at->diffForHumans() }}</i></small>
-                            <span class="comment-details">{{ $comment->details }}</span>
-                        </li>
-                    @endforeach
-                </ul>
-            @else
-                <span class="ticket-comment-emptymessage">There are no comments for this ticket</span>
-            @endif
-        </div>
-        <hr/>
 
         <form method="POST" action="{{ url('/tickets/' . $ticket->id . '/comments') }}">
             {{ csrf_field() }}
@@ -80,10 +63,28 @@
                 <input type="submit" name="status" value="in progress" class="btn btn-xs status-in_progress"/>
                 <input type="submit" name="status" value="unresolved" class="btn btn-xs status-unresolved"/>
                 <input type="submit" name="status" value="resolved" class="btn btn-xs status-resolved"/><br/><br/>
-                <input type="submit" value="Add comment">
+                <input type="submit" value="Add comment" class="btn btn-success">
             </div>
-            
         </form>
+
+        <hr/>
+        
+        <div class="ticket-comments">
+            <b>Comments</b><br/>
+            @if( count($ticket->comments) > 0)
+                <ul class="comments">
+                    @foreach($ticket->comments()->orderBy("created_at", "DESC")->get() as $comment)
+                        <li class="comment">
+                            <span class="commenter">By: {{ $comment->user->email }}</span> - <small><i>{{ $comment->created_at->diffForHumans() }}</i></small>
+                            <span class="comment-details">{{ $comment->details }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <span class="ticket-comment-emptymessage">There are no comments for this ticket</span>
+            @endif
+        </div>
+        
     @endif
 </div>
 @endsection
