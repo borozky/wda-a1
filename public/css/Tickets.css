@@ -93,6 +93,8 @@ ALL TICKETS
     color: #fff;
     padding: 1px 6px;
     border-radius: 2px;
+    font-family: Menlo, DejaVu Sans Mono, Consolas, monospace;
+    font-size: 11px;
 }
 
 /**
@@ -148,10 +150,24 @@ TICKET DETAILS AREA
 }
 
 #TicketDetailsArea .ticket-information {
-    font-size: 12px;
+    font-size: 10px;
+    font-family: Menlo, Consolas, monospace;
+    background-color: #f9f9f9;
+    border: 1px solid #ececec;
+    padding: 10px;
+    display: inline-block;
+    min-width: 240px;
+    margin-bottom: 20px;
 }
 
-#TicketDetailsArea .ticket-details {}
+#TicketDetailsArea .ticket-details {
+    margin-bottom: 10px;
+    min-height: 130px;
+    background-color: #fafafa;
+    padding: 15px;
+    font-size: 12px;
+    font-family: Menlo, DejaVu Sans Mono, Consolas, monospace;
+}
 
 #TicketDetailsArea .ticket-comments {
     font-size: 12px;
@@ -181,10 +197,13 @@ TICKET DETAILS AREA
 }
 #TicketDetailsArea .comments .comment .commenter {
     font-weight: bold;
+    font-size: 11px;
 }
 #TicketDetailsArea .comments .comment .comment-details {
     display: inline-block;
     width: 100%;
+    color: #6b6b6b;
+    font-family: Menlo, DejaVu Sans Mono, Consolas, monospace;
 }
 
 
