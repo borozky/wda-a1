@@ -49,7 +49,7 @@ class CommentsController extends Controller
         $ticket = Ticket::find((int) $id);
         $ticket->status = $request->status;
         if($ticket->save()){
-            return back()->with("success", "Ticket is now marked as { strtoupper($request->status) }");
+            return back()->with("success", "Ticket is now marked as " . strtoupper($request->status));
         }
         return back()->with("danger", "Ticket status failed to update");
     }
