@@ -9,7 +9,6 @@ use App\User;
 
 class CommentsController extends Controller
 {
-
     // POST: /tickets/{id}/comments
     public function store(Request $request, $id){
         

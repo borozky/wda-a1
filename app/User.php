@@ -8,7 +8,7 @@ use App\Comment;
 
 class User extends Model
 {
-    protected $fillable = ["email", "firstname", "lastname"];
+    protected $fillable = ["email"];
     
     public function tickets(){
         return $this->hasMany(Ticket::class);

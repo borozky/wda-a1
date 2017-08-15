@@ -37,7 +37,17 @@ class TicketsController extends Controller
 
     // GET: /tickets/create
     public function create(){
-        return view("tickets.create");
+        $operating_system = [
+            "windows" => "Windows",
+            "linux" => "Linux",
+            "mac" => "Mac OS"
+        ];
+        
+        $software_issues = [
+            "c9 setup" => "Cloud 9 Setup"
+        ];
+        
+        return view("tickets.create", compact("operating_system", "software_issues"));
     }
 
 
@@ -45,9 +55,9 @@ class TicketsController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             "email"     => "required|email",
-            "firstname" => "required|min:2",
-            "lastname"  => "required",
-            "details"   => "required"
+            "firstname" => "required",
+            "lastname"  => "required|min:2",
+            "details"   => "required|min:10"
         ]);
         
         $ticket = new Ticket;

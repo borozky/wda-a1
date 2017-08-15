@@ -8,6 +8,8 @@ use App\User;
 
 class Comment extends Model
 {
+    protected $fillable = ["user", "ticket_id", "user_id"];
+    
     public function ticket(){
         return $this->belongsTo(Ticket::class);
     }

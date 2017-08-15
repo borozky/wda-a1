@@ -10,3 +10,8 @@
 .validation-errors ul li {
     font-size: 12px;
 }
+
+label + .required {
+    content: "*";
+    color: #f00;
+}

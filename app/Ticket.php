@@ -8,6 +8,8 @@ use App\Comment;
 
 class Ticket extends Model
 {
+    protected $fillable = ["email", "firstname", "lastname", "details"];
+    
     public function user(){
         return $this->belongsTo(User::class);
     }

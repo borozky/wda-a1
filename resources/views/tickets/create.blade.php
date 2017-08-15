@@ -11,26 +11,27 @@
 @endsection
 
 <div id="CreateTicketArea">
-<!-- // user email, first and last names, email, operating system being used, software issue and a comment textearea to describe the issue -->
-
     @include("errors.validation-errors")
 
-    <form action="{{ url('/tickets') }}" method="POST" enctype="multipart/form-data" style="display:inline-block" novalidate="novalidate">
+    <form action="{{ url('tickets') }}" method="POST" style="display:inline-block" novalidate="novalidate">
         {{ csrf_field() }}
 
         <div class="form-group">
-            <label for="TicketEmail">Your email</label><br/>
+            <label for="TicketEmail">Your email</label>
+            <span class="required"></span>
             <input type="email" name="email" id="TicketEmail" class="form-control input-xs" value="{{ old('email', '') }}" required>
         </div>
 
         <div class="form-group">
             <label for="TicketFirstName">Firstname</label>
-            <input type="text" name="firstname" id="TicketFirstName" class="form-control input-xs"  value="{{ old('firstname', '') }}" required>
+            <span class="required"></span>
+            <input type="text" name="firstname" id="TicketFirstName" class="form-control input-xs"  value="{{ old('firstname', '') }}" required="required">
         </div>
 
         <div class="form-group">
             <label for="TicketLastName">Last name</label>
-            <input type="text" name="lastname" id="TicketLastName" class="form-control input-xs"  value="{{ old('lastname', '') }}" required>
+            <span class="required"></span>
+            <input type="text" name="lastname" id="TicketLastName" class="form-control input-xs"  value="{{ old('lastname', '') }}" required="required" minlength="2">
         </div>
 
         <div class="form-group">
@@ -54,13 +55,9 @@
         </div>
 
         <div class="form-group">
+            <span class="required"></span>
             <label for="TicketComment">Details</label><br>
-            <textarea name="details" class="form-control input-xs"  id="TicketComment" rows="5" placeholder="Your ticket details" required>{{ old('details', '') }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="TicketImages">Images</label><br/>
-            <input type="file" name="images" multiple="multiple" id="TicketImages" style="display: inline-block;width: 100%;"/>
+            <textarea name="details" class="form-control input-xs"  id="TicketComment" rows="5" placeholder="Your ticket details" required="required" minlength="10">{{ old('details', '') }}</textarea>
         </div>
 
         <p style="text-align:right">
@@ -74,7 +71,7 @@
 @section("footer-scripts")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script>
-        $(function(){
+        $(document).ready(function(){
             $("form").validate();
         });
     </script>
