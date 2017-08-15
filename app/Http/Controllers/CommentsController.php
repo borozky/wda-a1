@@ -12,11 +12,6 @@ class CommentsController extends Controller
     // POST: /tickets/{id}/comments
     public function store(Request $request, $id){
         
-        // will run when trying to update the status of the ticket
-        if($request->exists("status")){
-            return $this->updateTicketStatus($request, $id);
-        }
-        
         $this->validate($request, [
             "details" => "required",
             "ticket_id" => "required|exists:tickets,id",
@@ -36,21 +31,6 @@ class CommentsController extends Controller
         }
         
         return back()->with("danger", "Failed to insert comment");
-    }
-
-
-    private function updateTicketStatus(Request $request, $id){
-        $this->validate($request, [
-            "ticket_id" => "required|exists:tickets,id",
-            "status" => "required"
-        ]);
-
-        $ticket = Ticket::find((int) $id);
-        $ticket->status = $request->status;
-        if($ticket->save()){
-            return back()->with("success", "Ticket is now marked as " . strtoupper($request->status));
-        }
-        return back()->with("danger", "Ticket status failed to update");
     }
 
     private function createAndGetUser($email){

@@ -1,15 +1,12 @@
 @extends("shared.layout")
 
-@section("title", "Ticket Details - ITS Ticketing System");
+@section("title", "Ticket Details - ITS Ticketing System")
 
 @section("site-content")
 <div id="TicketDetailsArea">
     
-    <div class="alert alert-success">
-        <div class="container">
-            <h3>The ticket has been submitted</h3>
-        </div>
-    </div>
+    <h3>Ticket successfully created</h3>
+    <p>Your ticket id is <b><a href="{{ url('/tickets/' . $ticket->id) }}">{{ $ticket->id }}</a></b></p>
     
     <table class="ticket-information">
         <tr>

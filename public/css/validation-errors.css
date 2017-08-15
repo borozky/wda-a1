@@ -10,6 +10,11 @@
 .validation-errors ul li {
     font-size: 12px;
 }
+input + .error, textarea + .error {
+    color: #f00;
+    font-weight: normal;
+    font-size: 12px;
+}
 
 label + .required {
     content: "*";

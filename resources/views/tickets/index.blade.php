@@ -13,7 +13,7 @@
 <div id="TicketsIndexArea">
 
     @if(isset($tickets) && !empty($tickets))
-        <div class="table-responsive">
+        <div class="table-responsive" style="-webkit-overflow-scrolling: touch">
             <table class="table">
                 <tr>
                     <th>#</th>
@@ -35,7 +35,7 @@
                             <a href="{{ url('/tickets/' . $ticket->id) }}" class="ticket-details">{{ substr($ticket->details, 0, 100) }}</a>
                         </td>
                         <td class="ticket-status">
-                            <span class="status-{{ str_replace(' ', '_', $ticket->status) }}">{{ $ticket->status }}</span><br/>
+                            <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">{{ $ticket->status }}</span><br/>
                         </td>
                         <td>
                             <span title="{{ $ticket->created_at->toDayDateTimeString() }}">

@@ -13,18 +13,41 @@
 
         <h4>Ticket Details</h4>
 
-        <div class="ticket-information">
-            From: {{ $ticket->firstname . " " . $ticket->lastname }}  &lt;<a href="mailto:{{ $ticket->email }}">{{ $ticket->email }}</a>&gt;<br/>
-            Status: <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">{{ ucwords($ticket->status) }}</span>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="ticket-information">
+                    From: {{ $ticket->firstname . " " . $ticket->lastname }}  &lt;<a href="mailto:{{ $ticket->email }}">{{ $ticket->email }}</a>&gt;<br/>
+                    Status: <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">{{ ucwords($ticket->status) }}</span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+                <form action="{{ url('/tickets/' . $ticket->id . '/updateTicketStatus') }}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field("PUT") }}
+                    <div class="ticket-actions">
+                        <label>Mark ticket as</label><br />
+                        <input type="hidden" name="ticket_id" value="{{ $ticket->id }}"/>
+                        <input type="submit" name="status" value="pending" class="btn btn-xs status-pending"/>
+                        <input type="submit" name="status" value="in progress" class="btn btn-xs status-in_progress"/>
+                        <input type="submit" name="status" value="unresolved" class="btn btn-xs status-unresolved"/>
+                        <input type="submit" name="status" value="resolved" class="btn btn-xs status-resolved"/><br/><br/>
+                    </div>
+                </form>
+            </div>
         </div>
-        <br/>
-        <div class="ticket-details">
-            {{ $ticket->details }}
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="ticket-details">
+                    {{ $ticket->details }}
+                </div>
+                <small class="created_at">Created: {{ $ticket->created_at->diffForHumans() }}</small>
+            </div>
         </div>
-        <small class="created_at">Created: {{ $ticket->created_at->diffForHumans() }}</small>
+        
         <hr/>
 
-        <form method="POST" action="{{ url('/tickets/' . $ticket->id . '/comments') }}">
+        <form method="POST" action="{{ url('/tickets/' . $ticket->id . '/comments') }}" id="AddCommentForm">
             {{ csrf_field() }}
             <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
 
@@ -38,20 +61,18 @@
                 <tr>
                     <td colspan="2">
                         <label for="TicketComment">Comment</label><br/>
-                        <textarea name="details" id="TicketComment" cols="30" rows="5">{{ old('details', '') }}</textarea>
+                        <textarea name="details" id="TicketComment" rows="5" required="required" minlength="10">{{ old('details', '') }}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Add comment" class="btn btn-success">
                     </td>
                 </tr>
             </table>
             
 
-            <div class="ticket-actions">
-                <label>Mark ticket as</label><br />
-                <input type="submit" name="status" value="pending" class="btn btn-xs status-pending"/>
-                <input type="submit" name="status" value="in progress" class="btn btn-xs status-in_progress"/>
-                <input type="submit" name="status" value="unresolved" class="btn btn-xs status-unresolved"/>
-                <input type="submit" name="status" value="resolved" class="btn btn-xs status-resolved"/><br/><br/>
-                <input type="submit" value="Add comment" class="btn btn-success">
-            </div>
+            
         </form>
 
         <hr/>
@@ -74,4 +95,13 @@
         
     @endif
 </div>
+@endsection
+
+@section("footer-scripts")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#AddCommentForm").validate();
+        });
+    </script>
 @endsection

@@ -150,7 +150,7 @@ TICKET DETAILS AREA
 }
 
 #TicketDetailsArea .ticket-information {
-    font-size: 10px;
+    font-size: 11px;
     font-family: Menlo, Consolas, monospace;
     background-color: #f9f9f9;
     border: 1px solid #ececec;
@@ -204,6 +204,31 @@ TICKET DETAILS AREA
     width: 100%;
     color: #6b6b6b;
     font-family: Menlo, DejaVu Sans Mono, Consolas, monospace;
+}
+
+
+/**
+================================
+ADD COMMENT FORM
+================================*/
+#AddCommentForm table {
+    width: 100%;
+    max-width: 480px;
+}
+
+#AddCommentForm table tr {
+    vertical-align: top;
+}
+
+#AddCommentForm  table tr:first-child input {
+    display: inline-block;
+    width: 100%;
+}
+
+#AddCommentForm  table tr td > textarea {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 

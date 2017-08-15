@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TicketRequest;
 use App\Ticket as Ticket;
 use App\Comment;
 
@@ -52,13 +53,7 @@ class TicketsController extends Controller
 
 
     // POST: /tickets
-    public function store(Request $request){
-        $this->validate($request, [
-            "email"     => "required|email",
-            "firstname" => "required",
-            "lastname"  => "required|min:2",
-            "details"   => "required|min:10"
-        ]);
+    public function store(TicketRequest $request){
         
         $ticket = new Ticket;
         $ticket->email = $request->email;
@@ -69,10 +64,24 @@ class TicketsController extends Controller
         $ticket->details = $request->details;
         
         if( $ticket->save() ){
-            return view("tickets.created", ["ticket" => $ticket]);
+            return view("tickets.created", compact("ticket"))->with("success", "Ticket has successfully created (ticket id: {$ticket->id})");
         }
         
         return back();
+    }
+    
+    public function updateTicketStatus(Request $request, $id){
+        $this->validate($request, [
+            "ticket_id" => "required|exists:tickets,id",
+            "status" => "required"
+        ]);
+
+        $ticket = Ticket::find((int) $id);
+        $ticket->status = $request->status;
+        if($ticket->save()){
+            return back()->with("success", "Ticket is now marked as " . strtoupper($request->status));
+        }
+        return back()->with("danger", "Ticket status failed to update");
     }
 
 
