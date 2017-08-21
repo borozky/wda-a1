@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\TicketRequest;
+use App\Http\Requests\UpdateTicketStatusRequest;
+
 use App\Ticket as Ticket;
 use App\Comment;
 
@@ -38,23 +40,14 @@ class TicketsController extends Controller
 
     // GET: /tickets/create
     public function create(){
-        $operating_system = [
-            "windows" => "Windows",
-            "linux" => "Linux",
-            "mac" => "Mac OS"
-        ];
-        
-        $software_issues = [
-            "c9 setup" => "Cloud 9 Setup"
-        ];
-        
+        $operating_system = ["Windows", "Mac OS", "Linux", "iOS", "Android OS", "other"];
+        $software_issues = ["Cloud 9 Setup", "Laravel Setup", "PHPStorm setup", "other"];
         return view("tickets.create", compact("operating_system", "software_issues"));
     }
 
 
     // POST: /tickets
     public function store(TicketRequest $request){
-        
         $ticket = new Ticket;
         $ticket->email = $request->email;
         $ticket->firstname = $request->firstname;
@@ -67,20 +60,18 @@ class TicketsController extends Controller
             return view("tickets.created", compact("ticket"))->with("success", "Ticket has successfully created (ticket id: {$ticket->id})");
         }
         
-        return back();
+        return back()->with("danger", "Something went wrong while submitting a ticket");;
     }
     
-    public function updateTicketStatus(Request $request, $id){
-        $this->validate($request, [
-            "ticket_id" => "required|exists:tickets,id",
-            "status" => "required"
-        ]);
-
+    
+    public function updateTicketStatus(UpdateTicketStatusRequest $request, $id){
         $ticket = Ticket::find((int) $id);
         $ticket->status = $request->status;
-        if($ticket->save()){
+        
+        if( $ticket->save() ){
             return back()->with("success", "Ticket is now marked as " . strtoupper($request->status));
         }
+        
         return back()->with("danger", "Ticket status failed to update");
     }
 

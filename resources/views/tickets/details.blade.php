@@ -17,7 +17,14 @@
             <div class="col-xs-12 col-sm-4">
                 <div class="ticket-information">
                     From: {{ $ticket->firstname . " " . $ticket->lastname }}  &lt;<a href="mailto:{{ $ticket->email }}">{{ $ticket->email }}</a>&gt;<br/>
-                    Status: <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">{{ ucwords($ticket->status) }}</span>
+                    @if( ! empty($ticket->operating_system))
+                        OS: {{ $ticket->operating_system }} <br/>
+                    @endif
+                    @if(! empty($ticket->software_issue))
+                        Issue: {{ $ticket->software_issue }} <br/>
+                    @endif
+                    <br/>
+                    Status: <span class="status-{{ str_replace(' ', '_', strtolower($ticket->status)) }}">{{ ucwords($ticket->status) }}</span><br/>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-8">
@@ -44,36 +51,6 @@
                 <small class="created_at">Created: {{ $ticket->created_at->diffForHumans() }}</small>
             </div>
         </div>
-        
-        <hr/>
-
-        <form method="POST" action="{{ url('/tickets/' . $ticket->id . '/comments') }}" id="AddCommentForm">
-            {{ csrf_field() }}
-            <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
-
-            <h4>Add Comment</h4>
-
-            <table>
-                <tr>
-                    <td><label for="TicketCommenter">Email</label></td>
-                    <td><input type="email" name="email" value="{{ old('email', '') }}"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <label for="TicketComment">Comment</label><br/>
-                        <textarea name="details" id="TicketComment" rows="5" required="required" minlength="10">{{ old('details', '') }}</textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Add comment" class="btn btn-success">
-                    </td>
-                </tr>
-            </table>
-            
-
-            
-        </form>
 
         <hr/>
         
@@ -92,6 +69,33 @@
                 <span class="ticket-comment-emptymessage">There are no comments for this ticket</span>
             @endif
         </div>
+        
+        <hr/>
+        
+        <form method="POST" action="{{ url('/tickets/' . $ticket->id . '/comments') }}" id="AddCommentForm">
+            {{ csrf_field() }}
+            <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
+
+            <h4>Add Comment</h4>
+
+            <table>
+                <tr>
+                    <td><label for="TicketCommenter">Email</label></td>
+                    <td><input type="email" name="email" value="{{ old('email', '') }}" required="required"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="TicketComment">Comment</label><br/>
+                        <textarea name="details" id="TicketComment" rows="5" required="required" minlength="10">{{ old('details', '') }}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Add comment" class="btn btn-success">
+                    </td>
+                </tr>
+            </table>
+        </form>
         
     @endif
 </div>

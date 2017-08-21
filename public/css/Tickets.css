@@ -67,7 +67,6 @@ ALL TICKETS
 
 #TicketsIndexArea table tr td.ticket-sender * {
     display: inline-block;
-    max-width: 120px;
     word-wrap: break-word;
 }
 
@@ -228,7 +227,10 @@ ADD COMMENT FORM
 #AddCommentForm  table tr td > textarea {
     display: inline-block;
     width: 100%;
-    margin-bottom: 15px;
+}
+
+#AddCommentForm table tr td input[type=submit] {
+    margin-top: 20px;
 }
 
 

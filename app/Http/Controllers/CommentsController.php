@@ -3,26 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
+
 use App\Ticket;
 use App\Comment;
 use App\User;
 
 class CommentsController extends Controller
 {
+    
     // POST: /tickets/{id}/comments
-    public function store(Request $request, $id){
-        
-        $this->validate($request, [
-            "details" => "required",
-            "ticket_id" => "required|exists:tickets,id",
-            "email" => "required|email"
-        ]);
+    public function store(CommentRequest $request, $id){
 
-        // create the comment, commenters email will be saved to DB if doesn't exists
-        // USERS table are required according to A1 specs
         $comment = new Comment;
         $comment->details = $request->details;
         $comment->ticket_id = $request->ticket_id;
+        
+        // save email information in the users table, then associate the user email to the comment
         $user = $this->createAndGetUser($request->email);
         $comment->user_id = $user->id;
 

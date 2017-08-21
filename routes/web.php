@@ -15,8 +15,3 @@ Route::put("/tickets/{id}/updateTicketStatus", "TicketsController@updateTicketSt
 // Comments
 Route::post("/tickets/{id}/comments", "CommentsController@store");
 
-// User
-Route::get("/staff", "UsersController@staff");
-Route::post("/staff", "UsersController@signin");
-Route::get("/logout", "UsersController@logout");
-

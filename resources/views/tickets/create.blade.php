@@ -38,9 +38,9 @@
             <label for="TicketOperatingSystem">Operating System</label>
             <select name="operating_system" id="TicketOperatingSystem" class="form-control input-xs" >
                 <option value="-" selected="selected">-- Select OS --</option>
-                <option value="windows">Windows</option>
-                <option value="mac">Mac</option>
-                <option value="lunux">Linux</option>
+                @foreach($operating_system as $item)
+                    <option value="{{ $item }}"{{ old('operating_system') == $item ? " selected" : " " }}>{{ $item }}</option>
+                @endforeach
             </select>
         </div>
 
@@ -48,9 +48,9 @@
             <label for="TicketSoftwareIssue">Software Issues</label>
             <select name="software_issue" id="TicketSoftwareIssue" class="form-control input-xs" >
                 <option value="-" selected="selected">-- Select Common Issues --</option>
-                <option value="12323">PHPStorm</option>
-                <option value="12324">Cloud 9 Setup</option>
-                <option value="12325">Laravel Setup</option>
+                @foreach($software_issues as $item)
+                    <option value="{{ $item }}"{{ old('software_issue') == $item ? " selected" : " " }}>{{ $item }}</option>
+                @endforeach
             </select>
         </div>
 

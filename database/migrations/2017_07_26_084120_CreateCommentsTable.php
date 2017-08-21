@@ -16,10 +16,10 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             
-            $table->bigInteger("ticket_id");
+            $table->bigInteger("ticket_id")->unsigned();
             $table->foreign('ticket_id')->references('id')->on('tickets');
             
-            $table->bigInteger("user_id");
+            $table->bigInteger("user_id")->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             
             $table->longText("details");
