@@ -40,7 +40,7 @@ class TicketsController extends Controller
 
     // GET: /tickets/create
     public function create(){
-        $operating_system = ["Windows", "Mac OS", "Linux", "iOS", "Android OS", "other"];
+        $operating_system = ["Windows", "Mac OS", "Linux", "iOS", "Android OS", "other", "- not applicable -"];
         $software_issues = [
             "Google services setup", 
             "Service accounts", 
