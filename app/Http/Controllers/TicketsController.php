@@ -44,13 +44,10 @@ class TicketsController extends Controller
         $software_issues = [
             "Google services setup", 
             "Service accounts", 
-            "Telephone and voicemail",
             "Storage",
             "Cloud storage increase",
             "Wifi Setup",
             "Printing",
-            "Equipment issues",
-            "Lost item",
             "Misconfigured software",
             "other"];
         return view("tickets.create", compact("operating_system", "software_issues"));
