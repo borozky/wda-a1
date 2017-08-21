@@ -41,7 +41,18 @@ class TicketsController extends Controller
     // GET: /tickets/create
     public function create(){
         $operating_system = ["Windows", "Mac OS", "Linux", "iOS", "Android OS", "other"];
-        $software_issues = ["Cloud 9 Setup", "Laravel Setup", "PHPStorm setup", "other"];
+        $software_issues = [
+            "Google services setup", 
+            "Service accounts", 
+            "Telephone and voicemail",
+            "Storage",
+            "Cloud storage increase",
+            "Wifi Setup",
+            "Printing",
+            "Equipment issues",
+            "Lost item",
+            "Misconfigured software",
+            "other"];
         return view("tickets.create", compact("operating_system", "software_issues"));
     }
 
